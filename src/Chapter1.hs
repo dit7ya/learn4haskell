@@ -563,8 +563,8 @@ Casual reminder about adding top-level type signatures for all functions :)
 
 mid :: Int -> Int -> Int -> Int
 mid x y z
-  | x < y && y < z || z < y && y < x = y
-  | y < x && x < z || z < x && x < z = x
+  | x <= y && y <= z || z <= y && y <= x = y
+  | y <= x && x <= z || z <= x && x <= z = x
   | otherwise = z
 
 {- |
@@ -673,7 +673,7 @@ aren't ready for this boss yet!
 
 firstDigit :: Int -> Int
 firstDigit n
-  | abs (n `div` 10) <= 1 = n
+  | abs (n `div` 10) <= 1 = abs n
   | otherwise = firstDigit ((n - n `mod` 10) `div` 10)
 
 
